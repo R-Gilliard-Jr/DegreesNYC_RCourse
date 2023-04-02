@@ -11,4 +11,4 @@ invisible(lapply(pkgs, library, character.only = T))
   )
 }
 
-nyc_survey_total <- read.csv(file.path(.get_course_path(), "Exercises", "Lesson_3", "total.csv"))
+nyc_survey_total <- read.csv(file.path(.get_course_path(), "DegreesNYC_RCourse", "Lesson_3", "total.csv"))
