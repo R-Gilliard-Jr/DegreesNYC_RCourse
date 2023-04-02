@@ -12,20 +12,16 @@
       # expression which the user entered, so care must be taken.
 
 test_sum_x_y <- function() {
-   try(rm(z), silent = T)
-   try({
-      func <- get("sum_x_y", globalenv())
-      func()
-   }, silent = T)
-   z == 7
+   exists("z") && z == 7
 }
 
 test_filter_total <- function() {
-   try({
-      func <- get("filter_total", globalenv())
-      totest <- func(nyc_survey_total)
-      correct <- filter(nyc_survey_total, Total.Student.Response.Rate >= .95)
-   })
+   correct <- nyc_survey_total %>%
+      # Keep response rates above .95
+      filter(Total.Student.Response.Rate >= .95)
+   
+   try(totest <- get("survey_filtered", envir = .GlobalEnv))
+   
    identical(correct, totest)
 }
 

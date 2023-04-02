@@ -6,10 +6,6 @@
   Organization: your organization's name goes here
   Version: 2.4.5
   
-- Class: text
-  Output: 
-    The following question is about using the pipe.
-
 - Class: script
   Output: Use the pipe to sum x and y and assign the value to z
   AnswerTests: test_sum_x_y()

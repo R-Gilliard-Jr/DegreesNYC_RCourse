@@ -1,6 +1,3 @@
-filter_total <- function(data) {
-  data <- data %>%
-    filter(Total.Student.Response.Rate >= .95)
-  return(data)
-}
-# Remember, once you're done coding, Save and submit() your code.
+survey_filtered <- nyc_survey_total %>%
+  # Keep response rates above .95
+  filter(Total.Student.Response.Rate >= .95)
