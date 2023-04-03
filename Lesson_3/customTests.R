@@ -20,9 +20,9 @@ test_filter_total <- function() {
       # Keep response rates above .95
       filter(Total.Student.Response.Rate >= .95)
    
-   try(totest <- get("survey_filtered", envir = .GlobalEnv))
+   try(totest <- get("survey_filtered", envir = .GlobalEnv), silent = T)
    
-   identical(correct, totest)
+   exists("totest") && identical(correct, totest)
 }
 
 test_slice_arrange <- function() {
@@ -32,7 +32,7 @@ test_slice_arrange <- function() {
       arrange(Total.Parent.Response.Rate)
    
    try(totest <- get("slice_arrange", envir = .GlobalEnv))
-   identical(correct, totest)
+   exists("totest") && identical(correct, totest)
 }
 
 test_select <- function() {
@@ -42,7 +42,7 @@ test_select <- function() {
                   "Supportive.Environment.Score", "Strong.Family.Community.Ties.Score", "Trust.Score"))
    
    try(totest <- get("survey_truncated", envir = .GlobalEnv))
-   identical(correct, totest)
+   exists("totest") && identical(correct, totest)
 }
 
 test_rename_relocate <- function() {
@@ -52,7 +52,7 @@ test_rename_relocate <- function() {
       relocate(stu_response_rate, .before = Total.Parent.Response.Rate)
    
    try(totest <- get("rename_relocate", envir = .GlobalEnv))
-   identical(correct, totest)
+   exists("totest") && identical(correct, totest)
 }
 
 test_mutate_summarize <- function() {
@@ -63,5 +63,5 @@ test_mutate_summarize <- function() {
       summarize(mean = mean(ratio, na.rm = T))
    
    try(totest <- get("stu_par_ratio", envir = .GlobalEnv))
-   identical(correct, totest)
+   exists("totest") && identical(correct, totest)
 }

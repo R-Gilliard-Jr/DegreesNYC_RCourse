@@ -4,4 +4,3 @@ y <- 4
 # Finish the code so that z has the value 7
 z <- x %>%
 sum(y)
-assign("z",z, envir = .GlobalEnv)
