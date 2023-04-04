@@ -12,21 +12,17 @@
       # expression which the user entered, so care must be taken.
 
 test_sum_x_y <- function() {
-   try(rm(z), silent = T)
-   try({
-      func <- get("sum_x_y", globalenv())
-      func()
-   }, silent = T)
-   z == 7
+   exists("z") && z == 7
 }
 
 test_filter_total <- function() {
-   try({
-      func <- get("filter_total", globalenv())
-      totest <- func(nyc_survey_total)
-      correct <- filter(nyc_survey_total, Total.Student.Response.Rate >= .95)
-   })
-   identical(correct, totest)
+   correct <- nyc_survey_total %>%
+      # Keep response rates above .95
+      filter(Total.Student.Response.Rate >= .95)
+   
+   try(totest <- get("survey_filtered", envir = .GlobalEnv), silent = T)
+   
+   exists("totest") && identical(correct, totest)
 }
 
 test_slice_arrange <- function() {
@@ -36,7 +32,7 @@ test_slice_arrange <- function() {
       arrange(Total.Parent.Response.Rate)
    
    try(totest <- get("slice_arrange", envir = .GlobalEnv))
-   identical(correct, totest)
+   exists("totest") && identical(correct, totest)
 }
 
 test_select <- function() {
@@ -46,7 +42,7 @@ test_select <- function() {
                   "Supportive.Environment.Score", "Strong.Family.Community.Ties.Score", "Trust.Score"))
    
    try(totest <- get("survey_truncated", envir = .GlobalEnv))
-   identical(correct, totest)
+   exists("totest") && identical(correct, totest)
 }
 
 test_rename_relocate <- function() {
@@ -56,7 +52,7 @@ test_rename_relocate <- function() {
       relocate(stu_response_rate, .before = Total.Parent.Response.Rate)
    
    try(totest <- get("rename_relocate", envir = .GlobalEnv))
-   identical(correct, totest)
+   exists("totest") && identical(correct, totest)
 }
 
 test_mutate_summarize <- function() {
@@ -67,5 +63,5 @@ test_mutate_summarize <- function() {
       summarize(mean = mean(ratio, na.rm = T))
    
    try(totest <- get("stu_par_ratio", envir = .GlobalEnv))
-   identical(correct, totest)
+   exists("totest") && identical(correct, totest)
 }
