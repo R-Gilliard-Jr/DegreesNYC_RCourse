@@ -1,85 +1,115 @@
 - Class: meta
-  Course: Exercises
+  Course: DegreesNYC_RCourse
   Lesson: Lesson 3
   Author: your name goes here
   Type: Standard
   Organization: your organization's name goes here
   Version: 2.4.5
+
+- Class: mult_question
+  Output: 
+    Which of the following commands is most commonly used for creating
+    vectors?
+  AnswerChoices: 
+    list();array();c();vector()
+  CorrectAnswer: c()
+  AnswerTests: omnitest(correctVal= "c()")
+  Hint: Review the creating vectors section of Lesson 4.
   
-- Class: script
-  Output: Use the pipe to sum x and y and assign the value to z
-  AnswerTests: test_sum_x_y()
-  Script: sum_x_y.R
+- Class: cmd_question
+  Output: |-
+    What is the output of the following code 
+    
+    (provide your answer as a vector)?
+    
+    my_vector <- c(3, 5, 7, 9)
+    
+    my_vector[2:3]
+  CorrectAnswer: "c(5, 7)"
+  AnswerTests: omnitest(correctExpr = "c(5, 7)")
+  Hint: Review the section on using vectors in Lesson 4.
+    Use the `c()` function to report your answer. The
+    code will return the second and third elements of
+    my_vector.
+    
+- Class: cmd_question
+  Output: Create a vector named "scores" with 
+    the following values - 85, 90, 92, 87, 89.
+  CorrectAnswer: "scores <- c(85, 90, 92, 87, 89)"
+  AnswerTests: expr_creates_var("scores");omnitest(correctExpr = "scores <- c(85, 90, 92, 87, 89)")
   Hint: 
-    Remember that assignment can be written `<-` and the pipe `%>%`.
-    You will need one of each to answer this question.
+    To answer this question you will need to create a variable
+    called scores. Combine what you know about assignment
+    and what you know about vectors.
+    
+- Class: text
+  Output:
+    You can find the length of a vector using the 
+    `length()` function. Use that information
+    to answer the following question. You would use
+    this function by typing `length(vector_name)`.
+    
+- Class: cmd_question
+  Output:
+    What is the length of the vector long_vector?
+    Use the `length()` function (if you are using R Studio 
+    you will be able to see the length in the workspace
+    browser)
+  CorrectAnswer: "length(long_vector)"
+  AnswerTests: omnitest(correctExpr = "length(long_vector)")
+  Hint: Try `length(vector_name)`
+  
+- Class: mult_question
+  Output: |-
+    what is the output of the following code
+    
+    x <- c(1, 2, 3, 4)
+    
+    y <- c(5, 6, 7, 8)
+    
+    z <- x + y
+    
+    z
+  AnswerChoices:
+    c(6, 8, 10, 12); c(1, 2, 3, 4, 5, 6, 7, 8); 
+    c(5, 6, 7, 8); c(1, 2, 3, 5);
+  CorrectAnswer: "c(6, 8, 10, 12)"
+  AnswerTests: omnitest(correctVal = "c(6, 8, 10, 12)")
+  Hint: 
+    When summing vectors, corresponding elements in each
+    vector are summed (i.e. the first element in the
+    first vector is added to the first element in the
+    second vector and so on).
 
 - Class: text
-  Output: 
-    You should continue to use the pipe throughout these exercises.
-    Notice that the there is a data frame, nyc_survey_total, that has been
-    loaded into the global environment for you. This data is drawn from the
-    NYC School Survey for students. You can find the full data set here
-    https://infohub.nyced.org/reports/school-quality/nyc-school-survey/survey-archives.
-    You'll use this data set throughout the rest of the lesson.
-    
-- Class: script
-  Output: 
-    Filter the nyc_survey_total data frame, keeping only observations
-    where more at least 95% of students responded using dplyr's filter() 
-    function.
-  AnswerTests: test_filter_total()
-  Script: filter_total.R
-  Hint: Try ?filter for help with filter's syntax
-  
+  Output:
+    The `max()` function finds the maximum of a vector.
+    Use the `max()` function to solve the following
+    question.
+
+- Class: cmd_question
+  Output:
+    What is the maximum value in the vector long_vector?
+  CorrectAnswer: "max(long_vector)"
+  AnswerTests: omnitest(correctExpr = "max(long_vector)")
+  Hint: Try max(vector_name).
+
 - Class: mult_question
-  Output: 
-    Which of the following methods would allow you to see the first 5 rows
-    in the nyc_survey_total data frame?
-  AnswerChoices: 
-    slice_head(nyc_survey_total, n = 5);slice(nyc_survey_total, c(1, 2, 3, 4, 5));
-    slice(nyc_survey_total, 1:5);All of these work
-  CorrectAnswer: All of these work
-  AnswerTests: omnitest(correctVal= "All of these work")
-  Hint: Review the slice section in Lesson 3.
-  
-- Class: script
-  Output:
-    Sort the first 5 rows of the nyc_survey_total data frame on total 
-    parent response rate.
-  AnswerTests: test_slice_arrange()
-  Script: slice_arrange.R
-  Hint: 
-    Remember that the function for sorting rows is called arrange(). 
-    Review the section on arrange in Lesson 3 if you need further help.
+  Output: |-
+    What is the output of the following code
     
-- Class: mult_question
-  Output: What function allows sorting on descending order?
-  AnswerChoices: desc;rev;asce
-  CorrectAnswer: desc
-  AnswerTests: omnitest(correctVal= "desc")
-  Hint: Review teh arrange section of lesson 3.
+    a <- c(2, 4, 6, 8)
     
-- Class: script
-  Output:
-    Several columns in the nyc_survey_total data frame contain only NA values.
-    Remove them using the select() function.
-  AnswerTests: test_select()
-  Script: select.R
-  Hint: Remember to use the "-" sign to remove columns in select.
-  
-- Class: script
-  Output:
-    We're more interested in the student response rate than the parent response rate. 
-    Let's rename this column and place it before the Total.Parent.Response.Rate column.
-  AnswerTests: test_rename_relocate()
-  Script: rename_relocate.R
-  Hint: Revisit the relocate and rename sections of lesson 3.
-  
-- Class: script
-  Output:
-    Finally, let's use both mutate and summarize to find the mean of the student response
-    rate divided by the parent response rate.
-  AnswerTests: test_mutate_summarize()
-  Script: mutate_summarize.R
-  Hint: Revisit the mutate and summarize sections of lesson 3.
+    b <- a * 2
+    
+    c <- b[2:3]
+    
+    d <- sum(c)
+    
+    d
+  AnswerChoices: 8;12;16;20
+  CorrectAnswer: "8"
+  AnswerTests: omnitest(correctVal = "8")
+  Hint: If you are stuck, remember you can use 
+    swirl::play() to try the code yourself. When you
+    are done, use swirl::nxt() to resume the lesson.
