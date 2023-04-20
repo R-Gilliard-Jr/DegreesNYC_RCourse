@@ -1,0 +1,57 @@
+- Class: meta
+  Course: DegreesNYC_RCourse
+  Lesson: Lesson_5
+  Author: your name goes here
+  Type: Standard
+  Organization: your organization's name goes here
+  Version: 2.4.5
+
+- Class: mult_question
+  Output: Which of the following keywords is used to indicate the beginning of an if/else statement in R?
+  AnswerChoices: while; if; for; switch
+  CorrectAnswer: if
+  AnswerTests: omnitest(correctVal = "if")
+  Hint: 
+    Revisit the "Conditionals and their use" 
+    section in Lesson 5 on if/else statements
+    
+- Class: mult_question
+  Output: |-
+    What is the output of the following code?
+    
+    x <- 5
+    
+    if (x > 0) {
+    
+      print("x is positive")
+      
+    } else {
+    
+      print("x is non-positive")
+      
+    }
+  AnswerChoices: x is positive; x is non-positive; x is negative; Error variable 'x' not found
+  CorrectAnswer: x is positive
+  AnswerTests: omnitest(correctVal = "x is positive")
+  Hint: 
+    Consider which of the conditions in the if/else statement
+    will be true.
+    
+- Class: script
+  Output:
+    Update this script so that it subtracts the numbers
+    from 1 to 10 from 100.
+  AnswerTests: test_while_subtract()
+  Script: while_subtract.R
+  Hint: 
+    Review the section while loops in Lesson 5.
+    
+- Class: script
+  Output:
+    Update this script so that the for loop combines
+    the words at the same index in each of the two
+    vectors fruits and colors.
+  AnswerTests: test_for_vector()
+  Script: for_vector.R
+  Hint:
+    Review the section on for loops in Lesson 5.
