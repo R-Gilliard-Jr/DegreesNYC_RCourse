@@ -21,3 +21,8 @@ test_for_vector <- function() {
       "grape,purple", "kiwi,green")
    exists("fruits_colors") && identical(test, fruits_colors)
 }
+
+test_map_sums <- function() {
+   test <- list(60, 150, 240, 330, 420)
+   exists("final_sums") && identical(test, final_sums)
+}

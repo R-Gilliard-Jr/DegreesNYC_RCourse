@@ -55,3 +55,37 @@
   Script: for_vector.R
   Hint:
     Review the section on for loops in Lesson 5.
+    
+- Class: script
+  Output:
+    Update this script to use map to loop over all elements of the list
+    provided and divide them by 10. Then, use map again to loop over
+    the elements of the new list and sum them. Report your result 
+    in a vector named "final_sums". For a challenge, do all of this using
+    map only once.
+  AnswerTests: test_map_sums()
+  Script: map_sums.R
+  Hint:
+    Review the section on map in Lesson 5. Rather than trying to use
+    map once, it might be helpful to use it twice.
+    
+- Class: text
+  Output: 
+    The following question is a challenge question. If you are not interested
+    in trying it, you can type 'bye()' to exit the course now.
+    
+- Class: script
+  Output:
+    Create a function which generates a data frame from a single vector.
+    The data frame should have 5 columns and 20 rows. The columns should have
+    only numeric data and they should be labeled V1 through V5. The first column
+    should be equivalent to the original vector, but subsequent columns should be equal 
+    to the first column multiplied by 2, 3, 4 etc. Some code has been provided to get you
+    started.
+  AnswerTests: test_challenge()
+  Script: challenge.R
+  Hint:
+    Remember that in addition to looping over the elements of some vector, you can
+    loop over a sequence of numbers by using seq(). Consider first creating a list
+    and then converting that list into a data frame. Also, you can name the elements 
+    of a list using the following syntax - list(name1 = value1, name2 = value2)
