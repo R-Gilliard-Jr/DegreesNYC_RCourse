@@ -26,3 +26,25 @@ test_map_sums <- function() {
    test <- list(60, 150, 240, 330, 420)
    exists("final_sums") && identical(test, final_sums)
 }
+
+test_challenge <- function() {
+   correct <- function(x) {
+      # Your code here. Assign the resultant data frame to a variable called data
+      data <- list()
+      for (i in seq(1, 5)) {
+         data[[i]] <- x * i
+      }
+      data <- 
+         as.data.frame(data) %>%
+         setNames(paste0("V", 1:5))
+      # do not modify this code
+      return(data)
+   }
+   
+   try(totest <- get("create_frame", envir = .GlobalEnv))
+   
+   test_vectors <- list(1:20, 21:40, 41:60, 61:80, 81:100)
+   
+   outcomes <- sapply(test_vectors, function(x) identical(correct(x), totest(x)))
+   all(outcomes)
+}
