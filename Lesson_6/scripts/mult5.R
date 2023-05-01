@@ -1,0 +1,1 @@
+# Define a function, mult5, which takes a number or vector and multiplies it by 5.

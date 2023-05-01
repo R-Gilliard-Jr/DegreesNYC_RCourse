@@ -1,0 +1,71 @@
+- Class: meta
+  Course: DegreesNYC_RCourse
+  Lesson: Lesson 6
+  Author: your name goes here
+  Type: Standard
+  Organization: your organization's name goes here
+  Version: 2.4.5
+
+- Class: text
+  Output: 
+    Each question in this lesson will ask you to write a function on your own.
+    
+- Class: script
+  Output:
+    Write a function that multiplies any number or vector provided by 5.
+  AnswerTests: test_mult5()
+  Script: mult5.R
+  Hint:
+    Take a look at mult10 that is defined in Lesson 6. If you are really stumped,
+    you can simply modify this function. Make sure you are saving your function with the correct name.
+
+- Class: script
+  Output: |-
+    Write a function that doubles the length of a vector by copying all of the elements of the vector. Sort 
+    the vector so that like elements are together using the `sort()` function. For example, if given the 
+    following vector:
+    
+    c(4, 5, 6)
+    
+    Your function should return the following:
+    
+    c(4, 4, 5, 5, 6, 6)
+    
+    Similarly if given the following:
+    
+    c("H", "E", "L", "L", "O")
+    
+    Your function should return the following:
+    
+    c("E", "E", "H", "H", "L", "L", "L", "L", "O", "O")
+  AnswerTests: test_double_vec()
+  Script: double_vec.R
+  Hint:
+    You can use the `c()` function and the `sort()` function to build your function. 
+    Make sure you are saving your function with the correct name.
+    
+- Class: script
+  Output: |-
+    Write a function that composes a standardized response email. Your function should take four arguments
+    
+    1) The name of the recipient
+    
+    2) Any additional message you would like to include
+    
+    3) Your name
+    
+    4) Sign-off (such as "Best", "Regards", etc.)
+  AnswerTests: test_email()
+  Script: email.R
+  Hint:
+    Make sure that your arguments have the correct names. Revisit lesson 6 if you've forgotten to how to create
+    arguments or set argument defaults.
+
+- Class: script
+  Output:
+    Write a function that checks whether or not a given number is even.
+  AnswerTests: test_even_num()
+  Script: even_num.R
+  Hint:
+    This can be done easily using the modulo operator. Revisit lesson 2 if you've forgotten how the modulo operator
+    works.
