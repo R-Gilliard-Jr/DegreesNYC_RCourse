@@ -1,0 +1,91 @@
+- Class: meta
+  Course: DegreesNYC_RCourse
+  Lesson: Lesson_5
+  Author: your name goes here
+  Type: Standard
+  Organization: your organization's name goes here
+  Version: 2.4.5
+
+- Class: mult_question
+  Output: Which of the following keywords is used to indicate the beginning of an if/else statement in R?
+  AnswerChoices: while; if; for; switch
+  CorrectAnswer: if
+  AnswerTests: omnitest(correctVal = "if")
+  Hint: 
+    Revisit the "Conditionals and their use" 
+    section in Lesson 5 on if/else statements
+    
+- Class: mult_question
+  Output: |-
+    What is the output of the following code?
+    
+    x <- 5
+    
+    if (x > 0) {
+    
+      print("x is positive")
+      
+    } else {
+    
+      print("x is non-positive")
+      
+    }
+  AnswerChoices: x is positive; x is non-positive; x is negative; Error variable 'x' not found
+  CorrectAnswer: x is positive
+  AnswerTests: omnitest(correctVal = "x is positive")
+  Hint: 
+    Consider which of the conditions in the if/else statement
+    will be true.
+    
+- Class: script
+  Output:
+    Update this script so that it subtracts the numbers
+    from 1 to 10 from 100.
+  AnswerTests: test_while_subtract()
+  Script: while_subtract.R
+  Hint: 
+    Review the section while loops in Lesson 5.
+    
+- Class: script
+  Output:
+    Update this script so that the for loop combines
+    the words at the same index in each of the two
+    vectors fruits and colors.
+  AnswerTests: test_for_vector()
+  Script: for_vector.R
+  Hint:
+    Review the section on for loops in Lesson 5.
+    
+- Class: script
+  Output:
+    Update this script to use map to loop over all elements of the list
+    provided and divide them by 10. Then, use map again to loop over
+    the elements of the new list and sum them. Report your result 
+    in a vector named "final_sums". For a challenge, do all of this using
+    map only once.
+  AnswerTests: test_map_sums()
+  Script: map_sums.R
+  Hint:
+    Review the section on map in Lesson 5. Rather than trying to use
+    map once, it might be helpful to use it twice.
+    
+- Class: text
+  Output: 
+    The following question is a challenge question. If you are not interested
+    in trying it, you can type 'bye()' to exit the course now.
+    
+- Class: script
+  Output:
+    Create a function which generates a data frame from a single vector.
+    The data frame should have 5 columns and 20 rows. The columns should have
+    only numeric data and they should be labeled V1 through V5. The first column
+    should be equivalent to the original vector, but subsequent columns should be equal 
+    to the first column multiplied by 2, 3, 4 etc. Some code has been provided to get you
+    started.
+  AnswerTests: test_challenge()
+  Script: challenge.R
+  Hint:
+    Remember that in addition to looping over the elements of some vector, you can
+    loop over a sequence of numbers by using seq(). Consider first creating a list
+    and then converting that list into a data frame. Also, you can name the elements 
+    of a list using the following syntax - list(name1 = value1, name2 = value2)
